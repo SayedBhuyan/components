@@ -9,7 +9,7 @@
 <body>
 	<div id="root">
 		<div class="box">
-			<h1 class="title">TAB</h1>
+			<h2 class="title">TAB</h2>
 
 			<tabs>
 				<tab name="Home" :selected="true">
@@ -29,7 +29,16 @@
 					</div>
 				</tab>
 			</tabs>
+
 		</div><!-- end box -->
+
+		<div class="box">
+			<h2 class="title">Message</h2>
+			<message-list>
+				<message v-for="message in messages" :title="message.title" :body="message.body">{{ message.body }}</message>
+			</message-list>
+		</div><!-- end box -->
+
 	</div><!--end root -->
 <script src="https://unpkg.com/vue"></script>
 <script src="scripts.js"></script>

@@ -50,6 +50,48 @@ Vue.component("tab", {
 	}
 });
 
+
+Vue.component("message-list", {
+	template: `
+		<div>
+			<slot></slot>
+		</div>
+	`
+})
+Vue.component("message", {
+	data: function() {
+		return {
+			isVisible: true
+		}
+	},
+	template: `
+	<article class="message" v-show="isVisible">
+		<div class="message-header">
+			<h3>{{ title }}</h3>
+			<button @click="hideModal" class="delete" area-label="delete"></button>
+		</div>
+		<div class="message-body">
+			<p><slot></slot></p>
+		</div>
+	</article>
+	`,
+	props: ['title'],
+	methods: {
+		hideModal: function() {
+			this.isVisible = false;
+		}
+	}
+});
+
+
 var app = new Vue({
 	el: "#root",
+	data: {
+		messages: [
+			{title: "Syeed Redom", body: "Hi there"},
+			{title: "John Doe", body: "How cool it is. isn't it?"},
+			{title: "Jimmy Doe", body: "Now you see me :)"},
+			{title: "Busy Guy", body: "I'll be right back."},
+		]
+	}
 });
