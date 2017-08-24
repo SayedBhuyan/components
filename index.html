@@ -39,6 +39,14 @@
 			</message-list>
 		</div><!-- end box -->
 
+		<div class="box">
+			<h2 class="title">Modal</h2>
+			<modal v-if="showModal" v-on:close="showModal = false">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et dolorem reprehenderit enim perspiciatis, explicabo nisi totam, quod ipsam cumque deleniti rerum tempore fugit nihil nobis. Cumque earum, debitis a tempora!
+			</modal>
+			<button class="button is-primary" v-on:click="showModal = true">Show Modal</button>
+		</div>
+
 	</div><!--end root -->
 <script src="https://unpkg.com/vue"></script>
 <script src="scripts.js"></script>

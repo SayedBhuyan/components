@@ -1,3 +1,6 @@
+/*
+# Tabs <tabs></tabs>
+*/
 Vue.component("tabs", {
 	template: `
 	<div>
@@ -29,6 +32,10 @@ Vue.component("tabs", {
 	}
 });
 
+
+/*
+# Tab <tab></tab>
+*/
 Vue.component("tab", {
 	template: "<div v-show='isActive'><slot></slot></div>",
 	props: {
@@ -51,13 +58,20 @@ Vue.component("tab", {
 });
 
 
+/*
+# Message List <message-list></message-list>
+*/
 Vue.component("message-list", {
 	template: `
 		<div>
 			<slot></slot>
 		</div>
 	`
-})
+});
+
+/*
+# Message <message></message>
+*/
 Vue.component("message", {
 	data: function() {
 		return {
@@ -84,6 +98,21 @@ Vue.component("message", {
 });
 
 
+/*
+# Modal <modal></modal>
+*/
+Vue.component("modal", {
+	template: `
+		<div class="modal is-active">
+		  <div class="modal-background"></div>
+		  <div class="modal-content box">
+		  	<slot></slot>
+		  </div>
+		  <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
+		</div>
+	`
+});
+
 var app = new Vue({
 	el: "#root",
 	data: {
@@ -92,6 +121,7 @@ var app = new Vue({
 			{title: "John Doe", body: "How cool it is. isn't it?"},
 			{title: "Jimmy Doe", body: "Now you see me :)"},
 			{title: "Busy Guy", body: "I'll be right back."},
-		]
+		],
+		showModal: false
 	}
 });
