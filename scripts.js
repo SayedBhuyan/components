@@ -105,10 +105,22 @@ Vue.component("modal", {
 	template: `
 		<div class="modal is-active">
 		  <div class="modal-background"></div>
-		  <div class="modal-content box">
-		  	<slot></slot>
+		  <div class="modal-card">
+		    <header class="modal-card-head">
+		      <p class="modal-card-title">
+				<slot name="header"></slot>
+		      </p>
+		      <button v-on:click="$emit('close')" class="delete" aria-label="close"></button>
+		    </header><!-- end modal-card-head -->
+		    <section class="modal-card-body">
+		      <slot></slot>
+		    </section><!-- end modal-card-body -->
+		    <footer class="modal-card-foot">
+		      <slot name="footer">
+				<button class="button is-success">Okay</button>
+		      </slot>
+		    </footer>
 		  </div>
-		  <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
 		</div>
 	`
 });

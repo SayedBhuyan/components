@@ -42,7 +42,14 @@
 		<div class="box">
 			<h2 class="title">Modal</h2>
 			<modal v-if="showModal" v-on:close="showModal = false">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et dolorem reprehenderit enim perspiciatis, explicabo nisi totam, quod ipsam cumque deleniti rerum tempore fugit nihil nobis. Cumque earum, debitis a tempora!
+				<template slot="header">Modal Header goes here...</template>
+
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nulla hic odit aut id maxime, totam laudantium omnis. Ducimus, facilis ipsum officiis maxime necessitatibus impedit obcaecati repudiandae. Quaerat, molestiae, repellendus.
+
+				<template slot="footer">
+					<button class="button is-success">Save changes</button>
+					<button class="button">Cancel</button>
+				</template>
 			</modal>
 			<button class="button is-primary" v-on:click="showModal = true">Show Modal</button>
 		</div>
